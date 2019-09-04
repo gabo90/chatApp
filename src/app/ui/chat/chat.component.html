@@ -1,3 +1,32 @@
-<p>
-  chat works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 fixed-top">
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="text-white" [routerLink]="['settings']">
+        Config
+        <i class="fa fa-cog" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+  <div *ngFor="let message of messages">
+    {{message.autor}}
+    <div class="row">
+      {{message.text}}
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-dark bg-dark footer">
+  <div class="form-row mx-auto">
+    <div class="form-group col-10 mb-0">
+      <input type="text" class="form-control" [(ngModel)]="new_message"/>
+    </div>
+    <div class="form-group col-2 mb-0">
+      <button (click)="sendMessage()" class="btn btn-outline-light" type="button">
+        <i class="fa fa-send" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</nav>
